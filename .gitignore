@@ -1,0 +1,5 @@
+.venv/
+.agent.md
+TODO.md
+current_task_plan.md
+infrastructure/secrets/

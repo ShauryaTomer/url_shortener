@@ -1,0 +1,21 @@
+services:
+  db:
+    container_name: url_shortener_db
+    image: postgres:15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: /run/secrets/postgres_password
+      POSTGRES_DB: shortener_db
+    ports:
+      - "10000:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    secrets:
+      - postgres_password
+
+volumes:
+  postgres_data:
+
+secrets:
+  postgres_password:
+    file: ./infrastructure/secrets/postgres_password.txt
